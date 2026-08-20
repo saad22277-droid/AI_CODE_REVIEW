@@ -1,0 +1,38 @@
+name: "AI Code Review"
+description: "Hybrid AI + static-analysis review that comments directly on pull requests"
+author: "you"
+branding:
+  icon: "check-circle"
+  color: "purple"
+
+inputs:
+  provider:
+    description: "gemini (free, no credit card) or anthropic (paid). Defaults to config's provider, which defaults to gemini."
+    required: false
+  gemini-api-key:
+    description: "Gemini API key — required if provider is gemini. Free, no credit card: https://aistudio.google.com/apikey. Store as a repo secret."
+    required: false
+  anthropic-api-key:
+    description: "Anthropic API key — required if provider is anthropic. Store as a repo secret."
+    required: false
+  github-token:
+    description: "Token used to read the PR diff and post the review"
+    required: true
+    default: ${{ github.token }}
+  config-path:
+    description: "Path to the .aicodereview.yml config file"
+    required: false
+    default: ".aicodereview.yml"
+  model:
+    description: "Override the model set in config (e.g. gemini-3-flash-preview or claude-sonnet-5)"
+    required: false
+
+outputs:
+  findings-count:
+    description: "Number of findings after merge/dedupe"
+  findings-json:
+    description: "Full findings list as JSON"
+
+runs:
+  using: "node20"
+  main: "dist/index.js"

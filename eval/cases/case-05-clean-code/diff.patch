@@ -1,0 +1,17 @@
+diff --git a/ui/labels.js b/ui/labels.js
+new file mode 100644
+index 0000000..8625d58
+--- /dev/null
++++ b/ui/labels.js
+@@ -0,0 +1,11 @@
++const FORM_LABELS = {
++  username: 'Username',
++  password: 'Password',
++  confirmPassword: 'Confirm password',
++};
++
++function getLabel(key) {
++  return FORM_LABELS[key] || key;
++}
++
++module.exports = { FORM_LABELS, getLabel };

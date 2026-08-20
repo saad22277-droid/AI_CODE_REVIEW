@@ -1,0 +1,6 @@
+{
+  "description": "Loop uses `i <= end` instead of `i < end`, reading one index past the intended page.",
+  "expected": [
+    { "file": "utils/pagination.js", "line": 5, "category": "bug" }
+  ]
+}

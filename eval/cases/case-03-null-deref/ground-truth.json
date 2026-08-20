@@ -1,0 +1,6 @@
+{
+  "description": "Accesses user.profile.displayName with no check that profile exists.",
+  "expected": [
+    { "file": "users/profile.js", "line": 2, "category": "bug" }
+  ]
+}

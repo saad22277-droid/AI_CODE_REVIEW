@@ -1,0 +1,6 @@
+{
+  "description": "SQL query built via string concatenation of an unsanitized request param.",
+  "expected": [
+    { "file": "routes/users.js", "line": 5, "category": "security" }
+  ]
+}

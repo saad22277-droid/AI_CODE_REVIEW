@@ -1,0 +1,43 @@
+# AI Code Review config. Every field is optional — omit anything you want
+# left at its default (see src/types.ts DEFAULT_CONFIG).
+
+# "gemini" (free, no credit card — https://aistudio.google.com/apikey) or
+# "anthropic" (paid). Static analysis runs either way; this only picks the
+# LLM layer.
+provider: gemini
+
+# Model ID for whichever provider is set above.
+#   gemini:     gemini-3-flash-preview (the free-tier model, as of Aug 2026)
+#   anthropic:  claude-sonnet-5
+model: gemini-3-flash-preview
+
+# Diffs larger than this many characters (per file) get split into
+# multiple review calls rather than truncated, so nothing is silently
+# skipped — see src/diff/chunk.ts.
+maxDiffCharsPerChunk: 6000
+
+# Minimum severity to report at all: critical | warning | info
+severityThreshold: info
+
+# Minimum severity that makes the Action/CLI exit non-zero (fails the
+# check). Set to "never" to always pass and just leave review comments.
+failOnSeverity: critical
+
+ignorePaths:
+  - "**/*.lock"
+  - "**/package-lock.json"
+  - "**/dist/**"
+  - "**/node_modules/**"
+  - "**/*.min.js"
+  - "**/*.generated.ts"
+
+enableEslint: true
+enableSemgrep: true
+enableLlm: true
+
+categories:
+  security: true
+  bug: true
+  performance: true
+  maintainability: true
+  style: false # linters/formatters already own this; keeps LLM noise down

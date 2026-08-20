@@ -1,0 +1,17 @@
+diff --git a/utils/pagination.js b/utils/pagination.js
+new file mode 100644
+index 0000000..be5b4ea
+--- /dev/null
++++ b/utils/pagination.js
+@@ -0,0 +1,11 @@
++function getPageItems(items, pageIndex, pageSize) {
++  const start = pageIndex * pageSize;
++  const end = start + pageSize;
++  const page = [];
++  for (let i = start; i <= end; i++) {
++    if (items[i] !== undefined) page.push(items[i]);
++  }
++  return page;
++}
++
++module.exports = { getPageItems };

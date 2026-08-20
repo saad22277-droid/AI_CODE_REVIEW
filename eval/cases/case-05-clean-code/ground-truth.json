@@ -1,0 +1,4 @@
+{
+  "description": "Clean UI label constants. No real bug — includes the word 'password' as a harmless form-label string, deliberately, to test for false positives.",
+  "expected": []
+}

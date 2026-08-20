@@ -1,0 +1,11 @@
+diff --git a/users/profile.js b/users/profile.js
+new file mode 100644
+index 0000000..de19504
+--- /dev/null
++++ b/users/profile.js
+@@ -0,0 +1,5 @@
++function getDisplayName(user) {
++  return user.profile.displayName.trim();
++}
++
++module.exports = { getDisplayName };

@@ -1,0 +1,35 @@
+rules:
+  - id: sql-injection-string-concat
+    languages: [javascript, typescript]
+    severity: ERROR
+    message: >-
+      SQL-looking string is built with string concatenation into a variable
+      whose name suggests it's used as a query. Use a parameterized query /
+      prepared statement instead of concatenating values into SQL text.
+    metadata:
+      category: security
+      cwe: "CWE-89: SQL Injection"
+    patterns:
+      - pattern-either:
+          - pattern: $QUERY = "..." + $VAR
+          - pattern: $QUERY = $VAR + "..."
+          - pattern: $QUERY = "..." + $VAR + "..."
+      - metavariable-regex:
+          metavariable: $QUERY
+          regex: (?i)^(query|sql|stmt|cmd)
+
+  - id: hardcoded-secret
+    languages: [javascript, typescript]
+    severity: ERROR
+    message: >-
+      Long string literal assigned to a variable whose name suggests a
+      secret, API key, or token. Move this to an environment variable or a
+      secrets manager instead of committing it as source.
+    metadata:
+      category: security
+      cwe: "CWE-798: Use of Hard-coded Credentials"
+    patterns:
+      - pattern: $KEY = "..."
+      - metavariable-regex:
+          metavariable: $KEY
+          regex: (?i).*(secret|api[_-]?key|token).*

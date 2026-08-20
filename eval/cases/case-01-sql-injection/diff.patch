@@ -1,0 +1,18 @@
+diff --git a/routes/users.js b/routes/users.js
+new file mode 100644
+index 0000000..49a66e3
+--- /dev/null
++++ b/routes/users.js
+@@ -0,0 +1,12 @@
++const db = require('../db');
++
++function getUserById(req, res) {
++  const id = req.params.id;
++  const query = "SELECT * FROM users WHERE id = '" + id + "'";
++  db.query(query, (err, rows) => {
++    if (err) return res.status(500).json({ error: 'db error' });
++    res.json(rows[0]);
++  });
++}
++
++module.exports = { getUserById };
