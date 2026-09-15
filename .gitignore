@@ -1,4 +1,4 @@
 node_modules/
-dist/
+# dist is committed because it is the GitHub Action runtime
 *.log
 .DS_Store
