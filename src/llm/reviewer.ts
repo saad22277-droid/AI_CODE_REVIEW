@@ -1,7 +1,7 @@
 import { AppConfig, Finding, ReviewChunk } from "../types";
 import { LLMReviewer } from "./client";
 
-const MAX_CONCURRENT_REQUESTS = 4;
+const MAX_CONCURRENT_REQUESTS = 1;
 
 /**
  * Runs every chunk through the LLM reviewer with bounded concurrency (so a

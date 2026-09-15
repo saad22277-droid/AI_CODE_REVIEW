@@ -18,14 +18,19 @@ function severityAtLeast(f: Finding, threshold: Finding["severity"]): boolean {
  * findings a couple of lines apart silently collapse into one (caught by
  * tests/merge.test.ts).
  */
+function normalizeFilePath(file: string): string {
+  return file.replace(/\\/g, "/");
+}
+
 function isDuplicate(a: Finding, b: Finding): boolean {
   return (
-    a.file === b.file &&
+    normalizeFilePath(a.file) === normalizeFilePath(b.file) &&
     a.category === b.category &&
     a.source !== b.source &&
     Math.abs(a.line - b.line) <= PROXIMITY_LINES
   );
 }
+
 
 /**
  * Merges findings from ESLint, Semgrep, and the LLM into one ranked list.

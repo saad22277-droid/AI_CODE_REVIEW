@@ -36,7 +36,7 @@ function scoreCase(expected: GroundTruthEntry[], produced: Finding[]) {
     const matchIdx = produced.findIndex(
       (f, i) =>
         !matchedProduced.has(i) &&
-        f.file === exp.file &&
+        f.file.replace(/\\/g, "/") === exp.file.replace(/\\/g, "/") &&
         Math.abs(f.line - exp.line) <= LINE_TOLERANCE
     );
     if (matchIdx === -1) {
@@ -93,9 +93,8 @@ function toMarkdown(results: CaseResult[], agg: ReturnType<typeof aggregate>, mo
     mode === "mock"
       ? "> Generated with `MockReviewer` — a deliberately naive, pattern-matching stand-in for the LLM. " +
           "This validates that the chunking → review → merge → scoring pipeline is wired correctly. " +
-          "**It is not a benchmark of Claude's actual review quality.** Run `npm run eval -- --live` with " +
-          "`ANTHROPIC_API_KEY` set to score the real model."
-      : "> Generated against the live Claude API."
+          "It is not a benchmark of live model review quality."
+      : `> Generated against the live ${DEFAULT_CONFIG.provider} API.`
   );
   lines.push("");
   lines.push("| Case | Expected | Caught (TP) | Missed (FN) | False alarms (FP) |");
