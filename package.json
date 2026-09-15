@@ -1,7 +1,7 @@
 {
   "name": "ai-code-review",
   "version": "0.1.0",
-  "description": "Hybrid AI + static-analysis code review, shippable as a GitHub Action or a local CLI. Built on the Claude API.",
+  "description": "Hybrid AI + static-analysis code review, shippable as a GitHub Action or a local CLI. Supports Gemini and Claude.",
   "license": "MIT",
   "type": "commonjs",
   "bin": {
