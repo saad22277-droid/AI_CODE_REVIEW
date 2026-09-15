@@ -15,17 +15,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Verify Gemini secret is available
-        env:
-          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-        run: |
-          if [ -n "$GEMINI_API_KEY" ]; then
-            echo "GEMINI_API_KEY is available"
-          else
-            echo "GEMINI_API_KEY is EMPTY"
-            exit 1
-          fi
-
       - name: AI Code Review
         uses: ./
         with:
