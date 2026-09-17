@@ -86,7 +86,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: your-org/ai-code-review@v1
+      - uses: saad22277-droid/AI_CODE_REVIEW@v0.1.0
         with:
           gemini-api-key: ${{ secrets.GEMINI_API_KEY }}
 ```
