@@ -152,14 +152,8 @@ export GEMINI_API_KEY=...   # free — https://aistudio.google.com/apikey
 npm run eval -- --live
 ```
 
-I'd expect materially better recall on `case-03`/`case-04` from a real model
-actually reasoning about the code, and I don't want to claim that without
-the number in hand — this README will get updated with live results, not
-a guess. **Also worth knowing:** `GeminiReviewer` is implemented against
-Google's documented `generateContent` REST contract and passes schema
-validation on well-formed input, but GeminiReviewer has now been exercised through the GitHub Action using a live Gemini API key. The Action was successfully tested on a pull request and posted its review result back to GitHub.
- — running `--live` yourself is the first real test of it, not
-just a formality.
+I'd expect materially better recall on `case-03`/`case-04` from a real model actually reasoning about the code, and I don't want to claim that without the number in hand. The GitHub Action has been successfully tested with a live Gemini API key, but the evaluation harness itself has not yet been run with `--live`. Run the real-model evaluation to measure its precision and recall:
+
 
 One honest footnote: an earlier version of the dedup logic under-reported
 `case-05`'s false positives (it collapsed two separate bad flags into one,
