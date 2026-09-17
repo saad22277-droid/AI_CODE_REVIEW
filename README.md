@@ -217,9 +217,6 @@ npm run eval         # scored run against eval/cases (mock by default)
   published as a fixed guaranteed number) rather than a paid SLA — fine for
   a personal repo's PR volume, worth checking Google AI Studio's quota page
   before relying on it for a busy team repo.
-- `GeminiReviewer` hasn't been exercised against the live API in this
-  environment specifically (no key available where this was built) — see
-  the caveat under [Eval results](#eval-results).
 
 ## License
 
