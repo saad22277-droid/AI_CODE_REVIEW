@@ -10,15 +10,11 @@ that scores the tool against a small set of synthetic bugs with known
 ground truth, instead of asking you to take "the AI reviews your code" on
 faith.
 
-> **If you're reading this as part of a job application review:** the parts
-> worth a closer look are [`src/merge/dedupe.ts`](src/merge/dedupe.ts) (the
-> cross-source dedup logic, and the bug `tests/merge.test.ts` caught in it),
-> [`eval/runEval.ts`](eval/runEval.ts) (the scoring harness), and the
-> graceful-degradation pattern repeated in both
-> [`analyzers/`](src/analyzers) (what happens when ESLint/Semgrep aren't
-> configured) and [`llm/reviewer.ts`](src/llm/reviewer.ts) (what happens
-> when one chunk's API call fails). Those are the design decisions, not just
-> the "call the API" part.
+> **Engineering areas worth exploring:** The cross-source deduplication logic in
+> src/merge/dedupe.ts, the evaluation harness in eval/runEval.ts, and the
+> graceful-degradation paths in analyzers/ and llm/reviewer.ts.
+> These areas demonstrate the project's core engineering decisions beyond the LLM integration itself.
+
 
 ## Why hybrid, and why an eval
 
