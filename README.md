@@ -157,9 +157,8 @@ actually reasoning about the code, and I don't want to claim that without
 the number in hand — this README will get updated with live results, not
 a guess. **Also worth knowing:** `GeminiReviewer` is implemented against
 Google's documented `generateContent` REST contract and passes schema
-validation on well-formed input, but I didn't have a live API key in the
-environment that built this, so it hasn't actually been run against the
-real API yet — running `--live` yourself is the first real test of it, not
+validation on well-formed input, but GeminiReviewer has now been exercised through the GitHub Action using a live Gemini API key. The Action was successfully tested on a pull request and posted its review result back to GitHub.
+ — running `--live` yourself is the first real test of it, not
 just a formality.
 
 One honest footnote: an earlier version of the dedup logic under-reported
