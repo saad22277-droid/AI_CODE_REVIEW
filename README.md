@@ -127,7 +127,7 @@ $ npm run eval
 ● case-04-off-by-one         0/1 caught, 0 false alarms
 ● case-05-clean-code         0/0 caught, 2 false alarms
 
-Precision 50% · Recall 50% · F1 50%
+Precision 100% · Recall 50% · F1 67%
 ```
 
 Full per-case detail: [`eval/report.md`](eval/report.md).
